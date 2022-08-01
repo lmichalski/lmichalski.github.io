@@ -25,7 +25,7 @@ const sections = [
             }
           ],
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
-        }
+        } 
       ]
     },
     {
@@ -45,6 +45,8 @@ const sections = [
     }
   ]
   
+
+
   /////// TEMPLATES /////////////
   
   const countButtons = `
@@ -54,7 +56,7 @@ const sections = [
   `
   
   const makeAddons = (addons) => `
-  <ul class="AddonsList AddonsList--hidden"">
+  <ul class="AddonsList AddonsList--hidden">
     ${addons.map(({name, price}) => `<li>${name} - ${price} </li>`).join('\n')}
   </ul>
   `
@@ -75,23 +77,74 @@ const sections = [
       
   //////////////////////////////
       
+  function getDiscout(numberOfSets) {
+    if (numberOfSets == 1){
+      return numberOfSets * 0;
+    } else if (numberOfSets == 2){
+      return numberOfSets * 1;
+    } else if (numberOfSets == 3){
+      return numberOfSets * 2;
+    } else if (numberOfSets == 4){
+      return numberOfSets * 3;
+    } else if (numberOfSets < 8){
+      return numberOfSets * 3;
+    } else if (numberOfSets < 12){
+      return numberOfSets * 5;
+    } else if (numberOfSets < 15){
+      return numberOfSets * 8;
+    } else if (numberOfSets >= 15){
+      return numberOfSets * 10;
+    }
+  }
+
+  function getAddOns(numberOfSets) {
+    const addons = []
+    
+    if ((numberOfSets >= 2) && (numberOfSets < 4)){
+      addons.push('Celestial, D20')
+    }
+
+    if (numberOfSets >= 3){
+      addons.push('Odyssey Dice Enamel Pin')
+    }
+
+    if (numberOfSets >= 4){
+      addons.push("Celestial, Full Set")
+    }
+
+    if ((numberOfSets >= 8) && (numberOfSets < 15)){
+      addons.push("Strings of Fate, D20")
+    }
+
+    if (numberOfSets >= 15){
+      addons.push("Strings of Fate, Full Set")
+    }
+
+    return addons
+  }
+
+
+
+  // const updateCart = () => {
+  //   const setCount = 
+  //     $(".DiceRow")
+  //       .toArray()
+  //       .reduce((counts, row) => {
+  //         const section = $(row).attr('category')
+  //         const countSpan = $(row).children(".DiceRow__count")[0]
+  //         const count = (countSpan.innerHTML ? Number(countSpan.innerHTML) : 0)
+  //         //debugger
+  //         counts[section] = (counts[section] || 0) + count
+  //         return counts
+  //       }, {})
+  //   const setCountDiv = $(".Cart")
+  //   setCountDiv.html(JSON.stringify(setCount))
+  // }
   
   const updateCart = () => {
-    const setCount = 
-      $(".DiceRow")
-        .toArray()
-        .reduce((counts, row) => {
-          const section = $(row).attr('category')
-          const countSpan = $(row).children(".DiceRow__count")[0]
-          const count = (countSpan.innerHTML ? Number(countSpan.innerHTML) : 0)
-          //debugger
-          counts[section] = (counts[section] || 0) + count
-          return counts
-        }, {})
-    const setCountDiv = $(".Cart")
-    setCountDiv.html(JSON.stringify(setCount))
+    pass
   }
-  
+
   updateCart()
   
   $(".DiceRow__add").click((e) => {

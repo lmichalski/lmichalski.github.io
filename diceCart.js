@@ -141,9 +141,7 @@ const sections = [
   //   setCountDiv.html(JSON.stringify(setCount))
   // }
   
-  const updateCart = () => {
-    pass
-  }
+  const updateCart = () => {}
 
   updateCart()
   

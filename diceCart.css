@@ -8,6 +8,26 @@
     padding: 16px;
     margin: 12px;
   }
+
+  .AddonsList {
+    -webkit-transition: max-height 1s; 
+    -moz-transition: max-height 1s; 
+    -ms-transition: max-height 1s; 
+    -o-transition: max-height 1s; 
+    transition: max-height 1s;  
+    overflow: hidden;
+    max-height: 100%;
+  }
+
+  ul.AddonsList--hidden {
+    -webkit-transition: max-height 1s; 
+    -moz-transition: max-height 1s; 
+    -ms-transition: max-height 1s; 
+    -o-transition: max-height 1s; 
+    transition: max-height 1s;  
+    overflow: hidden;
+    max-height: 0;
+  }
   
   .Preview {
     width: 300px;
@@ -22,3 +42,4 @@
     margin: 12px;
     border: 1px dashed black;
   }
+

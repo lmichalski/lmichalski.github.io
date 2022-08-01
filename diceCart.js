@@ -7,17 +7,29 @@ const sections = [
         {
           "name": "Browns Set",
           "basePrice": 70.00,
+          "addOns": [
+            {
+              "name": "3d6 Add On",
+              "price": 15.0
+            }
+          ],
           "image": "https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg"
         },
         {
           "name": "Oranges Set",
           "basePrice": 80.00,
+          "addOns": [
+            {
+              "name": "3d6 Add On",
+              "price": 20.00
+            }
+          ],
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
         }
       ]
     },
     {
-      "name": "3d6 Add On",
+      "name": "Single D20s",
       "items": [
         {
           "name": "Browns 3d6 Add On",
@@ -41,9 +53,16 @@ const sections = [
     <button class="DiceRow__add">+</button>
   `
   
+  const makeAddons = (addons) => `
+  <ul class="AddonsList AddonsList--hidden"">
+    ${addons.map(({name, price}) => `<li>${name} - ${price} </li>`).join('\n')}
+  </ul>
+  `
+
   const makeDiceRow = (props) => `
   <section class="DiceRow" previewUrl="${props.image}" category="${props.category}">
     ${props.name} -- ${props.basePrice} -- ${countButtons}
+    ${props.addOns ? makeAddons(props.addOns) : 'No addons'}
   </section>
   `
   
@@ -82,7 +101,11 @@ const sections = [
     
     const subButton = $(e.currentTarget).siblings(".DiceRow__sub")
     subButton.prop('disabled', false);
+
+    $(e.currentTarget).siblings(".AddonsList").removeClass("AddonsList--hidden")
+
     updateCart()
+
   })
   
   $(".DiceRow__sub").click((e) => {
@@ -90,8 +113,11 @@ const sections = [
     const currentCount = Number(countSpan.html())
     countSpan.html(currentCount - 1)
     
-    const subButton = $(e.currentTarget)
-    subButton.prop('disabled', currentCount == 1);
+    if (currentCount == 1){
+        const subButton = $(e.currentTarget)
+        subButton.prop('disabled', true);
+        $(e.currentTarget).siblings(".AddonsList").addClass("AddonsList--hidden")
+    }
     
     updateCart()
   })

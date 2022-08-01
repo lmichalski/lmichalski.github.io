@@ -2,31 +2,52 @@
     display: flex;
     flex-direction: row;
   }
-  .DiceRow {
-    border: 1px solid black;
-    width: 200px;
-    padding: 16px;
-    margin: 12px;
-  }
 
   .AddonsList {
-    -webkit-transition: max-height 1s; 
-    -moz-transition: max-height 1s; 
-    -ms-transition: max-height 1s; 
-    -o-transition: max-height 1s; 
-    transition: max-height 1s;  
+    -webkit-transition: max-height 0.2s;  
+    -moz-transition: max-height 0.2s;  
+    -ms-transition: max-height 0.2s;   
+    -o-transition: max-height 0.2s;  
+    transition: max-height 0.2s;  
     overflow: hidden;
     max-height: 100%;
+    margin: 8px 0;
+  }
+  
+  ul.AddonsList--hidden {
+    max-height: 0;
   }
 
-  ul.AddonsList--hidden {
-    -webkit-transition: max-height 1s; 
-    -moz-transition: max-height 1s; 
-    -ms-transition: max-height 1s; 
-    -o-transition: max-height 1s; 
-    transition: max-height 1s;  
-    overflow: hidden;
-    max-height: 0;
+  .DiceRow {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4px;
+  }
+
+
+  .DiceRow__sub, .DiceRow__count, .DiceRow__add {
+    margin: 0;
+    background: #fff;
+    border: rgb(204, 204, 205) 1px solid;
+  }
+
+  .DiceRow__sub, .DiceRow__add {
+    border-radius: 2000px;
+    width: 30px;
+  }
+
+  .DiceRow__sub {
+      margin-left: auto;
+  }
+
+  .PriceRow {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4px;
   }
   
   .Preview {
@@ -36,6 +57,12 @@
     margin: 12px;
   }
   
+  .Sections {
+    width: 100%;
+    padding: 2rem;
+    margin: 3rem auto;
+  }
+
   .Cart {
     width: 200px;
     padding: 16px;

@@ -42,6 +42,15 @@ const sections = [
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
         }
       ]
+    },
+    {
+        "name": "Extras",
+        "items": [
+            {
+                "name": "Odyssey Dice Enamel Pin",
+                "basePrice": 12.00
+            }
+        ]
     }
   ]
   
@@ -51,32 +60,43 @@ const sections = [
   
   const countButtons = `
     <button class="DiceRow__sub" disabled>-</button>
-      <span class="DiceRow__count">0</span>
+      <input class="DiceRow__count" min="0" max="999" name="quantity" value="0" type="number">
     <button class="DiceRow__add">+</button>
   `
+
+  const makePriceRow = (props) => `
+  <div class="PriceRow" name=${props.name}>
+    <span class="PriceRow__each" >$${Math.round(props.basePrice, 2)} ea.</span> <span class="PriceRow__total" ></span>
+  </div>
+  `
   
-  const makeAddons = (addons) => `
-  <ul class="AddonsList AddonsList--hidden">
-    ${addons.map(({name, price}) => `<li>${name} - ${price} </li>`).join('\n')}
+  const makeAddons = (addons, addonFor) => `
+  <ul class="AddonsList AddonsList--hidden" >
+    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
   </ul>
   `
 
   const makeDiceRow = (props) => `
-  <section class="DiceRow" previewUrl="${props.image}" category="${props.category}">
-    ${props.name} -- ${props.basePrice} -- ${countButtons}
-    ${props.addOns ? makeAddons(props.addOns) : 'No addons'}
+  <section>
+    <div class="DiceRow" previewUrl="${props.image}" category="${props.category}">
+      ${props.name} ${countButtons}
+    </div>
+    ${makePriceRow(props)}
+    
+    ${props.addOns ? makeAddons(props.addOns, props.name) : ''}
   </section>
   `
   
   const makeSection = (props) => `
-  <header>${props.name}</header>
-  ${props.items.map((items) => makeDiceRow({...items, category: props.name})).join('\n')}  
+    <button class="accordion">${props.name}</button>
+    <div class="accordion-content">
+      ${props.items.map((items) => makeDiceRow({...items, category: props.name})).join('\n')}
+    </div> 
   `
   
   $(".Sections").html(sections.map(makeSection).join('\n'))
       
-  //////////////////////////////
-      
+  //////////////////////////////      
   function getDiscout(numberOfSets) {
     if (numberOfSets == 1){
       return numberOfSets * 0;
@@ -147,34 +167,39 @@ const sections = [
   
   $(".DiceRow__add").click((e) => {
     const countSpan = $(e.currentTarget).siblings(".DiceRow__count")
-    const currentCount = Number(countSpan.html())
-    countSpan.html(currentCount + 1)
+    const currentCount = Number(countSpan.val())
+    countSpan.val(currentCount + 1)
     
     const subButton = $(e.currentTarget).siblings(".DiceRow__sub")
     subButton.prop('disabled', false);
 
-    $(e.currentTarget).siblings(".AddonsList").removeClass("AddonsList--hidden")
-
+    $(e.currentTarget).parent().siblings(".AddonsList").removeClass("AddonsList--hidden")
+    
+    subButton.parents(".accordion-content").css("max-height", subButton.parents(".accordion-content")[0].scrollHeight + "px");
     updateCart()
 
   })
   
   $(".DiceRow__sub").click((e) => {
     const countSpan = $(e.currentTarget).siblings(".DiceRow__count")
-    const currentCount = Number(countSpan.html())
-    countSpan.html(currentCount - 1)
+    const currentCount = Number(countSpan.val())
+    countSpan.val(currentCount - 1)
     
     if (currentCount == 1){
         const subButton = $(e.currentTarget)
         subButton.prop('disabled', true);
-        $(e.currentTarget).siblings(".AddonsList").addClass("AddonsList--hidden")
+        const addonList = $(e.currentTarget).parent().siblings(".AddonsList")
+        addonList.addClass("AddonsList--hidden")
+        addonList.find(".DiceRow__count").val(0)
+
+        subButton.parents(".accordion-content").css("max-height", subButton.parents(".accordion-content")[0].scrollHeight + "px");
     }
     
     updateCart()
   })
   
-  $(".DiceRow").hover((e) => {
+  $("section").hover((e) => {
     const rowDiv = $(e.currentTarget)
     $("img.Preview")
-      .attr("src", rowDiv.attr("previewUrl"))
+      .attr("src", $(rowDiv).children(".DiceRow").attr("previewUrl"))
   }, null)

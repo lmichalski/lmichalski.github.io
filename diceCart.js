@@ -113,10 +113,7 @@ body {
   background: none;
   border: none;
 
-  font-weight: 600;
-  line-height: 1.2em;
   text-transform: none;
-  line-height: 1.4em;
   font-size: calc((2 - 1) * 1.2vw + 1rem);
 
   border-bottom: rgb(204, 204, 205) 1px solid
@@ -156,9 +153,12 @@ body {
 
 
 main {
+    margin-top: 250px;
+    padding-left: 80px
+    padding-right: 80px
     display: flex;
     flex-direction: row;
-    gap: 2em;
+    gap: 3em;
   }
 
   .AddonsList {

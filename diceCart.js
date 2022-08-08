@@ -155,7 +155,7 @@ body {
 
 
 
-.content {
+main {
     display: flex;
     flex-direction: row;
     gap: 2em;
@@ -310,7 +310,7 @@ body {
   `}
 
 
-$(".content").html(`
+$("main").html(`
 <div class="Sections">
     ${window.diceSections.map(makeSection).join('\n')}
 </div>

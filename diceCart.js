@@ -1,8 +1,22 @@
 ///////////// DATA /////////////
 
-if (!window.sections) {
+if (!window.$){
+    var s = document.createElement('script');  
+    s.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+    // s.integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=";
+    // s.crossorigin="anonymous";
+    document.head.appendChild(s); 
+}
 
-    window.sections = [
+function runScript() {
+    // Script that does something and depends on jQuery being there.
+    if( window.$ ) {
+        // do your action that depends on jQuery.
+
+
+if (!window.diceSections) {
+
+    window.diceSections = [
         {
         "name": "8 Piece Sets",
         "items": [
@@ -60,7 +74,7 @@ if (!window.sections) {
 
 ////////// CSS ////////
 
-$("head").last().after(`
+$("head").append(`
     <style>
 
     @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
@@ -298,7 +312,7 @@ body {
 
 $(".content").html(`
 <div class="Sections">
-    ${window.sections.map(makeSection).join('\n')}
+    ${window.diceSections.map(makeSection).join('\n')}
 </div>
 
 <div class="Sidebar">
@@ -484,3 +498,10 @@ for (i = 0; i < acc.length; i++) {
         $("img.Preview").attr("src", newUrl)
     }
   }, null)
+
+} else {
+    // wait 50 milliseconds and try again.
+    window.setTimeout( runScript, 50 );
+}
+}
+runScript();

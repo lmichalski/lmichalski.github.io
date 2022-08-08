@@ -72,13 +72,13 @@ const sections = [
   
   const makeAddons = (addons, addonFor) => `
   <ul class="AddonsList AddonsList--hidden" >
-    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
+    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow" name="${name}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
   </ul>
   `
 
   const makeDiceRow = (props) => `
   <section>
-    <div class="DiceRow" previewUrl="${props.image}" category="${props.category}">
+    <div class="DiceRow" previewUrl="${props.image}" category="${props.category}" name="${props.name}">
       ${props.name} ${countButtons}
     </div>
     ${makePriceRow(props)}
@@ -97,7 +97,7 @@ const sections = [
   $(".Sections").html(sections.map(makeSection).join('\n'))
       
   //////////////////////////////      
-  function getDiscout(numberOfSets) {
+  function getDiscoutPerSet(numberOfSets) {
     if (numberOfSets == 1){
       return numberOfSets * 0;
     } else if (numberOfSets == 2){
@@ -161,7 +161,43 @@ const sections = [
   //   setCountDiv.html(JSON.stringify(setCount))
   // }
   
-  const updateCart = () => {}
+  const updateCart = () => {
+    let cartList = []
+
+    $(".DiceRow").each((index, dr) => {
+      const category = $(dr).attr("category") 
+      const addonFor = $(dr).parent().attr("addonFor")
+      const name = $(dr).attr("name")
+      const count = Number($(dr).children(".DiceRow__count")[0].value)
+      const unitPrice = $(dr).siblings("").attr("name")
+
+
+      if (category) {
+        cartList.push({ category, name, addOns: [], count})
+      } else if (addonFor) {
+        const listItem = cartList.find((item) => item.name == addonFor)
+        listItem.addOns.push(name + " " + count)
+      }
+      // debugger
+      // console.log(dr)
+    })
+
+    const setCount = cartList.filter(({category}) => category == "8 Piece Sets").reduce((sum, {count}) => (count + sum), 0)
+    const setDiscount = getDiscoutPerSet(setCount)
+
+
+    const discountedCart = cartList. flatMap((item) => {
+      if (item.category == "8 Piece Sets") {
+
+      }
+
+      return [item]
+    })
+
+
+    const setCountDiv = $(".Cart")
+    setCountDiv.html(JSON.stringify({setCount, discountedCart}))
+  }
 
   updateCart()
   

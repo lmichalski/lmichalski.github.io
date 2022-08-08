@@ -209,8 +209,8 @@ main {
   }
   
   .Preview {
-    width: 100%;
-    height: 400px;
+    max-width: 350px;
+    max-height: 350px;
   }
   
   .Sections {
@@ -221,7 +221,7 @@ main {
   }
 
   .Cart {
-    width: 100%;
+    width: 350px;
   }
 
   .Cart table {
@@ -229,7 +229,16 @@ main {
   }
 
   .Sidebar {
-      width: 400px;
+      width: 350px;
+  }
+
+  @media only screen and (min-width: 1300px) {
+    .Sidebar {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      gap: 3em;
+    }
   }
 </style>
 `);

@@ -154,8 +154,8 @@ body {
 
 main {
     margin-top: 250px;
-    padding-left: 80px
-    padding-right: 80px
+    padding-left: 80px;
+    padding-right: 80px;
     display: flex;
     flex-direction: row;
     gap: 3em;

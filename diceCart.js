@@ -58,6 +58,169 @@ if (!window.sections) {
 }
 
 
+////////// CSS ////////
+
+$("head").last().after(`
+    <style>
+
+    @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  font-family: "Ubuntu", sans-serif;
+  color: #000;
+  /* font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0em;
+  text-transform: none;
+  line-height: 1.8em;
+  font-size: 1rem; */
+
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.accordion {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 100%;
+  /* border: 1px solid #222; */
+  text-align: left;
+  outline: none;
+  transition: all 0.4s ease-out;
+  background: none;
+  border: none;
+
+  font-weight: 600;
+  line-height: 1.2em;
+  text-transform: none;
+  line-height: 1.4em;
+  font-size: calc((2 - 1) * 1.2vw + 1rem);
+
+  border-bottom: rgb(204, 204, 205) 1px solid
+}
+
+.active,
+.accordion:hover {
+  /* background-color: #426ef0; */
+}
+
+.accordion:after {
+  content: "\\02C5";
+  color: #000;
+  /* font-weight: reg; */
+  font-size: calc((2 - 1) * 1.2vw + 1rem);
+  float: right;
+  margin-left: 0.5rem;
+}
+
+.active:after {
+  content: "\\02C4";
+  font-size: calc((2 - 1) * 1.2vw + 1rem);
+  float: right;
+  margin-left: 0.5rem;
+}
+
+.accordion-content {
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 8px
+}
+
+
+
+.App {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+  }
+
+  .AddonsList {
+    -webkit-transition: max-height 0.2s;  
+    -moz-transition: max-height 0.2s;  
+    -ms-transition: max-height 0.2s;   
+    -o-transition: max-height 0.2s;  
+    transition: max-height 0.2s;  
+    overflow: hidden;
+    max-height: 100%;
+    margin: 8px 0;
+  }
+  
+  ul.AddonsList--hidden {
+    max-height: 0;
+  }
+
+  .DiceRow {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4px;
+  }
+
+
+  .DiceRow__sub, .DiceRow__count, .DiceRow__add {
+    margin: 0;
+    background: #fff;
+    border: rgb(204, 204, 205) 1px solid;
+  }
+
+  .DiceRow__sub, .DiceRow__add {
+    border-radius: 2000px;
+    width: 30px;
+  }
+
+  .DiceRow__sub {
+      margin-left: auto;
+  }
+
+  .PriceRow {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4px;
+  }
+  
+  .Preview {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .Sections {
+    width: 0;
+    flex-grow: 1;
+    margin-right: auto;;
+    margin-bottom: auto;
+  }
+
+  .Cart {
+    width: 100%;
+  }
+
+  .Cart table {
+      width: 100%;
+  }
+
+  .Sidebar {
+      width: 400px;
+  }
+</style>
+`);
+
+
   /////// TEMPLATES /////////////
   
   const countButtons = `
@@ -133,9 +296,36 @@ if (!window.sections) {
   `}
 
 
-  $(".Sections").html(window.sections.map(makeSection).join('\n'))
+$(".content").html(`
+<div class="Sections">
+    ${window.sections.map(makeSection).join('\n')}
+</div>
+
+<div class="Sidebar">
+    <img class="Preview" src="https://cdn-icons-png.flaticon.com/512/6545/6545894.png"/>
+    <div class="Cart">
+
+    </div>
+</div>
+<script>
+let acc = document.querySelectorAll(".accordion");
+let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    let panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
+`)
       
-  //////////////////////////////      
+  ////////////// Set Listeners!         ////////////////      
   function getDiscoutPerSet(numberOfSets) {
     if (numberOfSets == 1){
       return 0;

@@ -32,12 +32,12 @@ const sections = [
       "name": "Single D20s",
       "items": [
         {
-          "name": "Browns 3d6 Add On",
+          "name": "Browns D20",
           "basePrice": 15.00,
           "image": "https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg"
         },
         {
-          "name": "Oranges 3d6 Add On",
+          "name": "Oranges D20",
           "basePrice": 20.00,
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
         }
@@ -72,13 +72,13 @@ const sections = [
   
   const makeAddons = (addons, addonFor) => `
   <ul class="AddonsList AddonsList--hidden" >
-    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow" name="${name}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
+    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
   </ul>
   `
 
   const makeDiceRow = (props) => `
   <section>
-    <div class="DiceRow" previewUrl="${props.image}" category="${props.category}" name="${props.name}">
+    <div class="DiceRow" previewUrl="${props.image}" category="${props.category}" name="${props.name}" price="${props.basePrice}">
       ${props.name} ${countButtons}
     </div>
     ${makePriceRow(props)}
@@ -94,72 +94,89 @@ const sections = [
     </div> 
   `
   
+  const makeReciept = (items) => {
+      if (items.length == 0) return ''
+      let lastCategory = null;
+      let cartTotal = 0;
+    return `
+  <table>
+  ${items.map(({ category, name, addOns, count, basePrice, unitPrice}) => {
+        const maybeHeader = lastCategory == category ? '' : `<tr><th colspan="4"><em>${category}</em><th></tr>`
+        lastCategory = category
+        cartTotal += count * unitPrice + (addOns || []).reduce((total, {count, basePrice}) => total + count * basePrice, 0)
+      return `${maybeHeader}
+  <tr>
+    <td>${name} ${basePrice != unitPrice ? `($${Math.round(basePrice,2)})` : ''} </td>
+    ${ unitPrice > 0 ?
+        `<td>${count} x $${Math.round(unitPrice,2)}</td>
+        <td>$${Math.round(count * unitPrice,2)}</td>`
+        : `<td></td><td></td>`
+    }
+ </tr>
+ ${(addOns || []).map(({ name, count, basePrice }) => `<tr>
+ <td>&emsp;${name}</td>
+ <td>${count} x $${Math.round(basePrice,2)}</td>
+ <td>$${Math.round(count * basePrice,2)}</td>
+</tr>`)}
+  `}).join('\n')}
+  <tr style="height: 1px; background: rgb(151, 147, 145);">
+    <td colspan="100%"></td>
+ </tr>
+  <tr>
+        <td><strong>Total</strong></td>
+        <td></td>
+        <td><strong>$${Math.round(cartTotal,2)}</strong></td>
+    </tr>
+  </table>
+  `}
+
+
   $(".Sections").html(sections.map(makeSection).join('\n'))
       
   //////////////////////////////      
   function getDiscoutPerSet(numberOfSets) {
     if (numberOfSets == 1){
-      return numberOfSets * 0;
+      return 0;
     } else if (numberOfSets == 2){
-      return numberOfSets * 1;
+      return 1;
     } else if (numberOfSets == 3){
-      return numberOfSets * 2;
-    } else if (numberOfSets == 4){
-      return numberOfSets * 3;
+      return 2;
     } else if (numberOfSets < 8){
-      return numberOfSets * 3;
+      return 3;
     } else if (numberOfSets < 12){
-      return numberOfSets * 5;
+      return 5;
     } else if (numberOfSets < 15){
-      return numberOfSets * 8;
+      return 8;
     } else if (numberOfSets >= 15){
-      return numberOfSets * 10;
+      return 10;
     }
   }
 
   function getAddOns(numberOfSets) {
-    const addons = []
+    const addonNames = []
     
     if ((numberOfSets >= 2) && (numberOfSets < 4)){
-      addons.push('Celestial, D20')
+      addonNames.push('Celestial, D20')
     }
 
     if (numberOfSets >= 3){
-      addons.push('Odyssey Dice Enamel Pin')
+      addonNames.push('Odyssey Dice Enamel Pin')
     }
 
     if (numberOfSets >= 4){
-      addons.push("Celestial, Full Set")
+      addonNames.push("Celestial, Full Set")
     }
 
     if ((numberOfSets >= 8) && (numberOfSets < 15)){
-      addons.push("Strings of Fate, D20")
+      addonNames.push("Strings of Fate, D20")
     }
 
     if (numberOfSets >= 15){
-      addons.push("Strings of Fate, Full Set")
+      addonNames.push("Strings of Fate, Full Set")
     }
 
-    return addons
+    return addonNames.map((name) => ({name, category: "Free Extras", basePrice: 0, unitPrice: 0, count: 1}))
   }
-
-
-
-  // const updateCart = () => {
-  //   const setCount = 
-  //     $(".DiceRow")
-  //       .toArray()
-  //       .reduce((counts, row) => {
-  //         const section = $(row).attr('category')
-  //         const countSpan = $(row).children(".DiceRow__count")[0]
-  //         const count = (countSpan.innerHTML ? Number(countSpan.innerHTML) : 0)
-  //         //debugger
-  //         counts[section] = (counts[section] || 0) + count
-  //         return counts
-  //       }, {})
-  //   const setCountDiv = $(".Cart")
-  //   setCountDiv.html(JSON.stringify(setCount))
-  // }
   
   const updateCart = () => {
     let cartList = []
@@ -169,14 +186,14 @@ const sections = [
       const addonFor = $(dr).parent().attr("addonFor")
       const name = $(dr).attr("name")
       const count = Number($(dr).children(".DiceRow__count")[0].value)
-      const unitPrice = $(dr).siblings("").attr("name")
+      const basePrice = $(dr).attr("price")
 
 
-      if (category) {
-        cartList.push({ category, name, addOns: [], count})
-      } else if (addonFor) {
+      if (category && count > 0) {
+        cartList.push({ category, name, addOns: [], count, basePrice})
+      } else if (addonFor && count > 0) {
         const listItem = cartList.find((item) => item.name == addonFor)
-        listItem.addOns.push(name + " " + count)
+        listItem.addOns.push({name, count, basePrice})
       }
       // debugger
       // console.log(dr)
@@ -186,17 +203,19 @@ const sections = [
     const setDiscount = getDiscoutPerSet(setCount)
 
 
-    const discountedCart = cartList. flatMap((item) => {
+    const discountedCart = cartList.forEach((item) => {
       if (item.category == "8 Piece Sets") {
-
+        item.unitPrice = item.basePrice - setDiscount
+      } else {
+        item.unitPrice = item.basePrice
       }
-
-      return [item]
     })
+
+    cartList = [...cartList, ...getAddOns(setCount)]
 
 
     const setCountDiv = $(".Cart")
-    setCountDiv.html(JSON.stringify({setCount, discountedCart}))
+    setCountDiv.html(makeReciept(cartList))
   }
 
   updateCart()

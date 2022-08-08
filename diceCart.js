@@ -141,7 +141,7 @@ body {
 
 
 
-.App {
+.content {
     display: flex;
     flex-direction: row;
     gap: 2em;

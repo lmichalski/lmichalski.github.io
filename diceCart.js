@@ -1,59 +1,61 @@
 ///////////// DATA /////////////
 
-const sections = [
-    {
-      "name": "8 Piece Sets",
-      "items": [
+if (!window.sections) {
+
+    window.sections = [
         {
-          "name": "Browns Set",
-          "basePrice": 70.00,
-          "addOns": [
-            {
-              "name": "3d6 Add On",
-              "price": 15.0
-            }
-          ],
-          "image": "https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg"
-        },
-        {
-          "name": "Oranges Set",
-          "basePrice": 80.00,
-          "addOns": [
-            {
-              "name": "3d6 Add On",
-              "price": 20.00
-            }
-          ],
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
-        } 
-      ]
-    },
-    {
-      "name": "Single D20s",
-      "items": [
-        {
-          "name": "Browns D20",
-          "basePrice": 15.00,
-          "image": "https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg"
-        },
-        {
-          "name": "Oranges D20",
-          "basePrice": 20.00,
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
-        }
-      ]
-    },
-    {
-        "name": "Extras",
+        "name": "8 Piece Sets",
         "items": [
             {
-                "name": "Odyssey Dice Enamel Pin",
-                "basePrice": 12.00
+            "name": "Browns Set",
+            "basePrice": 70.00,
+            "addOns": [
+                {
+                "name": "3d6 Add On",
+                "price": 15.0
+                }
+            ],
+            "image": "https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg"
+            },
+            {
+            "name": "Oranges Set",
+            "basePrice": 80.00,
+            "addOns": [
+                {
+                "name": "3d6 Add On",
+                "price": 20.00
+                }
+            ],
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
+            } 
+        ]
+        },
+        {
+        "name": "Single D20s",
+        "items": [
+            {
+            "name": "Browns D20",
+            "basePrice": 15.00,
+            "image": "https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg"
+            },
+            {
+            "name": "Oranges D20",
+            "basePrice": 20.00,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
             }
         ]
-    }
-  ]
-  
+        },
+        {
+            "name": "Extras",
+            "items": [
+                {
+                    "name": "Odyssey Dice Enamel Pin",
+                    "basePrice": 12.00
+                }
+            ]
+        }
+    ]
+}
 
 
   /////// TEMPLATES /////////////
@@ -131,7 +133,7 @@ const sections = [
   `}
 
 
-  $(".Sections").html(sections.map(makeSection).join('\n'))
+  $(".Sections").html(window.sections.map(makeSection).join('\n'))
       
   //////////////////////////////      
   function getDiscoutPerSet(numberOfSets) {
@@ -222,14 +224,24 @@ const sections = [
   
   $(".DiceRow__add").click((e) => {
     const countSpan = $(e.currentTarget).siblings(".DiceRow__count")
-    const currentCount = Number(countSpan.val())
-    countSpan.val(currentCount + 1)
+    const newCount = Number(countSpan.val()) + 1
+    countSpan.val(newCount)
     
     const subButton = $(e.currentTarget).siblings(".DiceRow__sub")
     subButton.prop('disabled', false);
 
     $(e.currentTarget).parent().siblings(".AddonsList").removeClass("AddonsList--hidden")
     
+    if (e.currentTarget.parentElement.parentElement.hasAttribute("addonfor")) {
+        const parentsCount = Number($(e.currentTarget).closest('section').children(".DiceRow").children(".DiceRow__count").val())
+        if (newCount >= parentsCount) {
+            $(e.currentTarget).prop('disabled', true);
+        }
+
+    } else {
+        $(e.currentTarget).parent().siblings(".AddonsList").find(".DiceRow__add").prop('disabled', false);
+    }
+
     subButton.parents(".accordion-content").css("max-height", subButton.parents(".accordion-content")[0].scrollHeight + "px");
     updateCart()
 
@@ -237,17 +249,39 @@ const sections = [
   
   $(".DiceRow__sub").click((e) => {
     const countSpan = $(e.currentTarget).siblings(".DiceRow__count")
-    const currentCount = Number(countSpan.val())
-    countSpan.val(currentCount - 1)
-    
-    if (currentCount == 1){
-        const subButton = $(e.currentTarget)
-        subButton.prop('disabled', true);
-        const addonList = $(e.currentTarget).parent().siblings(".AddonsList")
-        addonList.addClass("AddonsList--hidden")
-        addonList.find(".DiceRow__count").val(0)
+    const addButton = $(e.currentTarget).siblings(".DiceRow__add")
+    const newCount = Number(countSpan.val()) - 1
+    countSpan.val(newCount)
+    const subButton = $(e.currentTarget)
 
-        subButton.parents(".accordion-content").css("max-height", subButton.parents(".accordion-content")[0].scrollHeight + "px");
+    addButton.prop('disabled', false);
+
+    if (newCount == 0){
+        subButton.prop('disabled', true);
+    }
+
+    if (e.currentTarget.parentElement.parentElement.hasAttribute("addonfor")) {
+        
+    } else {
+        if (newCount == 0){
+            const addonList = $(e.currentTarget).parent().siblings(".AddonsList")
+            addonList.addClass("AddonsList--hidden")
+            addonList.find(".DiceRow__count").val(0)
+    
+            subButton.parents(".accordion-content").css("max-height", subButton.parents(".accordion-content")[0].scrollHeight + "px");
+        }
+
+        $(e.currentTarget).parent().siblings(".AddonsList").find(".DiceRow").each((index, addon) => {
+            const countEl = $(addon).children(".DiceRow__count")
+
+            if (countEl.val() > newCount) {
+                countEl.val(newCount);
+            }
+            
+            if (countEl.val() == newCount){
+                $(addon).children(".DiceRow__add").prop('disabled', true);
+            }
+        })
     }
     
     updateCart()
@@ -255,6 +289,8 @@ const sections = [
   
   $("section").hover((e) => {
     const rowDiv = $(e.currentTarget)
-    $("img.Preview")
-      .attr("src", $(rowDiv).children(".DiceRow").attr("previewUrl"))
+    const newUrl = $(rowDiv).children(".DiceRow").attr("previewUrl")
+    if (newUrl){
+        $("img.Preview").attr("src", newUrl)
+    }
   }, null)

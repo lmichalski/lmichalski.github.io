@@ -152,7 +152,7 @@ body {
 
 
 
-main {
+#DiceCart {
     margin-top: 250px;
     padding-left: 80px;
     padding-right: 80px;
@@ -319,7 +319,7 @@ main {
   `}
 
 
-$("main").html(`
+$("#DiceCart").html(`
 <div class="Sections">
     ${window.diceSections.map(makeSection).join('\n')}
 </div>

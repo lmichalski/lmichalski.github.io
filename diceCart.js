@@ -207,8 +207,8 @@ body {
   }
   
   .Preview {
-    max-width: 350px;
-    max-height: 350px;
+    width: 350px;
+    height: 350px;
   }
   
   .Sections {

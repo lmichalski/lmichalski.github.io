@@ -38,7 +38,7 @@ if (!window.diceSections) {
                 {
                 "name": "3d6 Add On",
                 "price": 20.00
-                }
+                } 
             ],
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg"
             } 
@@ -373,13 +373,13 @@ for (i = 0; i < acc.length; i++) {
     if ((numberOfSets >= 2) && (numberOfSets < 4)){
       addonNames.push('Celestial, D20')
     }
+    
+    if (numberOfSets >= 4){
+      addonNames.push("Celestial, Full Set")
+    }
 
     if (numberOfSets >= 3){
       addonNames.push('Odyssey Dice Enamel Pin')
-    }
-
-    if (numberOfSets >= 4){
-      addonNames.push("Celestial, Full Set")
     }
 
     if ((numberOfSets >= 8) && (numberOfSets < 15)){

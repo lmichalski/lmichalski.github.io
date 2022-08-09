@@ -153,7 +153,6 @@ body {
 
 
 #DiceCart {
-    margin-top: 250px;
     display: flex;
     flex-direction: row;
     gap: 3em;

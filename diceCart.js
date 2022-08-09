@@ -154,8 +154,6 @@ body {
 
 #DiceCart {
     margin-top: 250px;
-    padding-left: 80px;
-    padding-right: 80px;
     display: flex;
     flex-direction: row;
     gap: 3em;
@@ -230,15 +228,6 @@ body {
 
   .Sidebar {
       width: 350px;
-  }
-
-  @media only screen and (min-width: 1300px) {
-    .Sidebar {
-      display: flex;
-      flex-direction: row;
-      width: auto;
-      gap: 3em;
-    }
   }
 </style>
 `);

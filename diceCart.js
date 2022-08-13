@@ -348,11 +348,11 @@ body {
   text-align: left;
   outline: none;
   transition: all 0.4s ease-out;
-  background: none;
   border: none;
 
   text-transform: none;
-  font-size: calc((2 - 1) * 1.2vw + 1rem);
+  height: calc((2 - 1) * 1.8vw + 1rem);
+  font-size: calc((2 - 1) * 0.6vw + 1rem);
 
   border-bottom: rgb(204, 204, 205) 1px solid
 }
@@ -380,6 +380,7 @@ body {
 
 .accordion-content {
   padding: 0 1rem;
+  margin-top: 4px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -465,6 +466,10 @@ body {
 
   .Sidebar {
       width: 350px;
+      height: fit-content;
+      position: -webkit-sticky; /* Safari */  
+      position: sticky;
+      top: 0px;
   }
 </style>
 `);

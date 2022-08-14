@@ -18,293 +18,391 @@ if (!window.diceSections) {
 
     window.diceSections = [
       {
-      "name": "8 Piece Sets",
-      "items": [
-          {
-          "name": "Blazing Inferno",
-          "basePrice": 70.00,
-          "addOns": [
+          "name": "8 Piece Sets",
+          "items": [
               {
-              "name": "3d6 Add On",
-              "price": 15.0,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652837338430-4XWLEZBLT5Z594P2GEF3/IMG_3274.jpg?format=500w"
+                  "name": "Blazing Inferno",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Blazing Inferno",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652837338430-4XWLEZBLT5Z594P2GEF3/IMG_3274.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938700834-73O88V6KMNHFU6C1P05L/Blazing%252Binferno%252Bheart.jpg?format=500w"
+              },
+              {
+                  "name": "Bleeding Heart",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Bleeding Heart",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652838092067-5GQOZR8CFN1JDBFUPCYC/IMG_3268.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938795154-MVDF3W4ROX20HBB8GZA8/bleeding%2Bheart%2Bupdated.jpg?format=500w"
+              },
+              {
+                  "name": "Blood in the Water",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Blood in the Water",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1655173554712-O4XOF0X477DYE12XVTEA/d6_blood_water.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658170266731-EVG12648G7O084GWUZXM/bLEEDING+HEART+square+square.jpg?format=500w"
+              },
+              {
+                  "name": "Corrupted Garden",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Corrupted Garden",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652826112949-32W62DC2WM1R05S9OCSP/IMG_3272.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658205982204-18CN1PKRVA5FG97IWDCI/D20+Square+heart.jpg?format=500w"
+              },
+              {
+                  "name": "Dawn",
+                  "basePrice": "80.00",
+                  "addOns": [
+                      {
+                          "name": "Dawn",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1656036026391-2Q85SWUHM6J4T5D9A9QN/IMG_3273.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206070415-F649SCDMTCVHFORM6PJE/dawn+heart.jpg?format=500w"
+              },
+              {
+                  "name": "Dusk",
+                  "basePrice": "80.00",
+                  "addOns": [
+                      {
+                          "name": "Dusk",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1654049429358-944BZI0QB7UB8NQZK8V2/D6_Warlock+Dice.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206122670-46GDQPHR053H5R8EME88/DUSK+heart.jpg?format=500w"
+              },
+              {
+                  "name": "Dragon's Embers",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Dragon's Embers",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652836947334-79VCF82SX0EMY134XYCA/IMG_3266.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206174671-J9Z04UWOB8MEDCJP40SO/DE+Heart.jpg?format=500w"
+              },
+              {
+                  "name": "Fae Magic",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Fae Magic",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1656035910304-TN7509XBC092WOG1GJ75/d6_faemagic.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206243729-YNRSUX31ISAQZ598FLGW/FM+Heart.jpg?format=500w"
+              },
+              {
+                  "name": "Jade Emperor",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Jade Emperor",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652823921556-IVPW4ECCEWB2PI2BHOI0/IMG_3269.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206292897-FW9RWUI03J6SP1L0S9FA/JE+Heart.jpg?format=500w"
+              },
+              {
+                  "name": "Land & Sea",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Land & Sea",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652840552767-MZADHRVGEMT5QXACT5W5/IMG_3263.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206400227-N2OMBQWPOYICTAPKTG93/L%26S+Heart.jpg?format=500w"
+              },
+              {
+                  "name": "Last Breath",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Last Breath",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652825575826-VPA7HF4KRPYUEDO7F7GG/IMG_3271.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206435431-TB4XB7A3ROASTL91NQSR/LB+Heart.jpg?format=500w"
+              },
+              {
+                  "name": "Moonlit Stream",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Moonlit Stream",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652838671927-MI5Q39GC60OQV25KNP0L/IMG_3270.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206605817-46824MIU52CKYWRKJTHR/Moonlit+heart.jpg?format=500w"
+              },
+              {
+                  "name": "Odyssey's End",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Odyssey's End",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1656702841640-J69OTRZ280LGDKTCE0RW/d6.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206655952-P2PU1AQPQU3FR2OR9IYQ/odysseys+end+heart.jpg?format=500w"
+              },
+              {
+                  "name": "Tempest",
+                  "basePrice": "70.00",
+                  "addOns": [
+                      {
+                          "name": "Tempest",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1654746908783-J8DGGH0R0AC0MI1S0JUL/d6+main.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206702095-3W97Q5DN9O0B7474QLRS/tempest+heart.jpg?format=500w"
+              },
+              {
+                  "name": "Withered Rose",
+                  "basePrice": "80.00",
+                  "addOns": [
+                      {
+                          "name": "Withered Rose",
+                          "price": "25.00",
+                          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652839067579-1N82S8XCOGLD494XA08T/IMG_3267.jpg?format=500w"
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206745055-XC6DJR129P2VUNAVZCTZ/wr+heart.jpg?format=500w"
               }
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938700834-73O88V6KMNHFU6C1P05L/Blazing%252Binferno%252Bheart.jpg?format=500w"
-          },
-  
-          {
-          "name": "Bleeding Heart",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652838092067-5GQOZR8CFN1JDBFUPCYC/IMG_3268.jpg?format=750w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938795154-MVDF3W4ROX20HBB8GZA8/bleeding%2Bheart%2Bupdated.jpg?format=750w"
-          },
-  
-          {
-          "name": "Blood in the Water",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1655173554712-O4XOF0X477DYE12XVTEA/d6_blood_water.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658170266731-EVG12648G7O084GWUZXM/bLEEDING+HEART+square+square.jpg?format=500w"
-          },
-          
-          {
-          "name": "Corrupted Garden",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652826112949-32W62DC2WM1R05S9OCSP/IMG_3272.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658205982204-18CN1PKRVA5FG97IWDCI/D20+Square+heart.jpg?format=500w"
-          },
-  
-          {
-          "name": "Dawn",
-          "basePrice": 80.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 20.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1656036026391-2Q85SWUHM6J4T5D9A9QN/IMG_3273.jpg?format=750w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206070415-F649SCDMTCVHFORM6PJE/dawn+heart.jpg?format=1500w"
-          },
-  
-          {
-          "name": "Dusk",
-          "basePrice": 80.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 20.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1654049429358-944BZI0QB7UB8NQZK8V2/D6_Warlock+Dice.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206122670-46GDQPHR053H5R8EME88/DUSK+heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Dragon's Embers",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652836947334-79VCF82SX0EMY134XYCA/IMG_3266.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206174671-J9Z04UWOB8MEDCJP40SO/DE+Heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Fae Magic",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1656035910304-TN7509XBC092WOG1GJ75/d6_faemagic.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206243729-YNRSUX31ISAQZ598FLGW/FM+Heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Jade Emperor",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652823921556-IVPW4ECCEWB2PI2BHOI0/IMG_3269.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206292897-FW9RWUI03J6SP1L0S9FA/JE+Heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Land & Sea",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652840552767-MZADHRVGEMT5QXACT5W5/IMG_3263.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206400227-N2OMBQWPOYICTAPKTG93/L%26S+Heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Last Breath",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652825575826-VPA7HF4KRPYUEDO7F7GG/IMG_3271.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206435431-TB4XB7A3ROASTL91NQSR/LB+Heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Moonlit Stream",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206601075-IIJ9EQZW18I8LDVOX8RD/moonlit+d20+square.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652838671927-MI5Q39GC60OQV25KNP0L/IMG_3270.jpg?format=500w"
-          },
-  
-          {
-          "name": "Odyssey's End",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1656702841640-J69OTRZ280LGDKTCE0RW/d6.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206655952-P2PU1AQPQU3FR2OR9IYQ/odysseys+end+heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Tempest",
-          "basePrice": 70.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 15.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1654746908783-J8DGGH0R0AC0MI1S0JUL/d6+main.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206702095-3W97Q5DN9O0B7474QLRS/tempest+heart.jpg?format=750w"
-          },
-  
-          {
-          "name": "Withered Rose",
-          "basePrice": 80.00,
-          "addOns": [
-              {
-              "name": "3d6 Add On",
-              "price": 20.00,
-              "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206739206-7NYMIEDJWCWPPRF3PR09/wr+d20+square.jpg?format=500w"
-              } 
-          ],
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1652839067579-1N82S8XCOGLD494XA08T/IMG_3267.jpg?format=500w"
-          }
-      ]
+          ]
       },
       {
-      "name": "Single D20s",
-      "items": [
-          {
-          "name": "Blazing Inferno",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938527036-LW1USG6RP9PQB436AMWH/Inferno+D20+KS.jpg?format=500w"
-          },
-          {
-          "name": "Bleeding Heart",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938755696-JPFUTJAMEZW94CJJP16Y/d20+bh.jpg?format=750w"
-          },
-          {
-          "name": "Blood in the Water",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658170259781-TFPS4BL3NVO7S421PX97/d20+square.jpg?format=500w"
-          },
-          {
-          "name": "Corrupted Garden",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658205972666-C866YHHPSJ9978YFPXFT/d20+cg.jpg?format=500w"
-          },
-          {
-          "name": "Dawn",
-          "basePrice": 20.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206059498-X0WPNQ488XPYW3GMG03D/d20+square.jpg?format=750w"
-          },
-          {
-          "name": "Dusk",
-          "basePrice": 20.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206119431-9ERRVN7IVU9JEUNSZROZ/dusk+d20+square.jpg?format=500w"
-          },
-          {
-          "name": "Dragon's Embers",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206171536-HD9TLNBHG87N80SQX030/D20+Final.jpg?format=500w"
-          },
-          {
-          "name": "Fae Magic",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206233025-GYRS4JIXCOBH08IX8VR0/fm+d20+square.jpg?format=500w"
-          },
-          {
-          "name": "Jade Emperor",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206284912-74UYC841UQL00US1YB8D/D20+Square.jpg?format=500w"
-          },
-          {
-          "name": "Land & Sea",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206343035-P8IAT8EY1M42THT0SPK8/d20+l%26s+square.jpg?format=500w"
-          },
-          {
-          "name": "Last Breath",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206430906-938EEWE7AA0PJD3W9278/LB+D20+Square.jpg?format=500w"
-          },
-          {
-          "name": "Moonlit Stream",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206601075-IIJ9EQZW18I8LDVOX8RD/moonlit+d20+square.jpg?format=500w"
-          },
-          {
-          "name": "Odyssey's End",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206652218-SL76KGD9AZU2S00ANJW9/odysseys+end+d20.jpg?format=500w"
-          },
-          {
-          "name": "Tempest",
-          "basePrice": 15.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206697790-UDSYF39YC3TF8PKW4T9L/tempest+square+d20.jpg?format=500w"
-          },
-          {
-          "name": "Withered Rose",
-          "basePrice": 20.00,
-          "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206739206-7NYMIEDJWCWPPRF3PR09/wr+d20+square.jpg?format=500w"
-          }
-      ]
+          "name": "D20",
+          "items": [
+              {
+                  "name": "Blazing Inferno",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Blazing Inferno",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938527036-LW1USG6RP9PQB436AMWH/Inferno+D20+KS.jpg?format=500w"
+              },
+              {
+                  "name": "Bleeding Heart",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Bleeding Heart",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938755696-JPFUTJAMEZW94CJJP16Y/d20+bh.jpg?format=500w"
+              },
+              {
+                  "name": "Blood in the Water",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Blood in the Water",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658170259781-TFPS4BL3NVO7S421PX97/d20+square.jpg?format=500w"
+              },
+              {
+                  "name": "Corrupted Garden",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Corrupted Garden",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658205972666-C866YHHPSJ9978YFPXFT/d20+cg.jpg?format=500w"
+              },
+              {
+                  "name": "Dawn",
+                  "basePrice": "20.00",
+                  "addOns": [
+                      {
+                          "name": "Dawn",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206059498-X0WPNQ488XPYW3GMG03D/d20+square.jpg?format=500w"
+              },
+              {
+                  "name": "Dusk",
+                  "basePrice": "20.00",
+                  "addOns": [
+                      {
+                          "name": "Dusk",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206119431-9ERRVN7IVU9JEUNSZROZ/dusk+d20+square.jpg?format=500w"
+              },
+              {
+                  "name": "Dragon's Embers",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Dragon's Embers",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206171536-HD9TLNBHG87N80SQX030/D20+Final.jpg?format=500w"
+              },
+              {
+                  "name": "Fae Magic",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Fae Magic",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206233025-GYRS4JIXCOBH08IX8VR0/fm+d20+square.jpg?format=500w"
+              },
+              {
+                  "name": "Jade Emperor",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Jade Emperor",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206284912-74UYC841UQL00US1YB8D/D20+Square.jpg?format=500w"
+              },
+              {
+                  "name": "Land & Sea",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Land & Sea",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206343035-P8IAT8EY1M42THT0SPK8/d20+l%26s+square.jpg?format=500w"
+              },
+              {
+                  "name": "Last Breath",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Last Breath",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206430906-938EEWE7AA0PJD3W9278/LB+D20+Square.jpg?format=500w"
+              },
+              {
+                  "name": "Moonlit Stream",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Moonlit Stream",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206601075-IIJ9EQZW18I8LDVOX8RD/moonlit+d20+square.jpg?format=500w"
+              },
+              {
+                  "name": "Odyssey's End",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Odyssey's End",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206652218-SL76KGD9AZU2S00ANJW9/odysseys+end+d20.jpg?format=500w"
+              },
+              {
+                  "name": "Tempest",
+                  "basePrice": "15.00",
+                  "addOns": [
+                      {
+                          "name": "Tempest",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206697790-UDSYF39YC3TF8PKW4T9L/tempest+square+d20.jpg?format=500w"
+              },
+              {
+                  "name": "Withered Rose",
+                  "basePrice": "20.00",
+                  "addOns": [
+                      {
+                          "name": "Withered Rose",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206739206-7NYMIEDJWCWPPRF3PR09/wr+d20+square.jpg?format=500w"
+              }
+          ]
       },
       {
-      "name": "Extras",
-      "items": [
-          {
-              "name": "Odyssey Dice Enamel Pin",
-              "basePrice": 12.00,
-              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Safety_Pin.jpg/1200px-Safety_Pin.jpg"
-          }
-      ]
+          "name": "Extras",
+          "items": [
+              {
+                  "name": "Odyssey Dice Enamel Pin",
+                  "basePrice": "12.00",
+                  "addOns": [
+                      {
+                          "name": "Odyssey Dice Enamel Pin",
+                          "price": "25.00",
+                          "image": ""
+                      }
+                  ],
+                  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Safety_Pin.jpg/1200px-Safety_Pin.jpg"
+              }
+          ]
       }
   ]
 }

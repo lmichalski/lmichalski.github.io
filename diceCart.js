@@ -569,6 +569,16 @@ body {
       position: sticky;
       top: 200px;
   }
+
+  @media only screen and (max-width: 768px) {
+   /* For mobile phones: */
+   .Preview {
+     width: 100%;
+   }
+   .Sections {
+    width: 100%;
+  }
+ }
 </style>
 `);
 

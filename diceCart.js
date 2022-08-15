@@ -440,9 +440,9 @@ body {
 
 .accordion {
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.25rem;
   width: 100%;
-  /* border: 1px solid #222; */
+  background: none;
   text-align: left;
   outline: none;
   transition: all 0.4s ease-out;
@@ -450,14 +450,22 @@ body {
 
   text-transform: none;
   height: 2.5rem;
-  font-size: 1.5rem;
-
-  border-bottom: rgb(204, 204, 205) 1px solid;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-bottom: rgb(0, 0, 0,0.2) 1px solid;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
+
+.accordion:hover  {
+    font-weight: 600;
+    border-bottom: rgb(0,0,0,1) 3px solid;
+    -webkit-transition: all 100ms linear;
+    -ms-transition: all 100ms linear;
+    transition: all 100ms linear;
+  }
 
 .active,
 .accordion:hover {
@@ -466,7 +474,6 @@ body {
 
 
 .accordion-content {
-  padding: 0 1rem;
   margin-top: 4px;
   max-height: 0;
   overflow: hidden;
@@ -494,6 +501,10 @@ body {
     max-height: 100%;
     margin: 8px 0;
   }
+
+  .AddonsList ::marker {
+    color: transparent;
+  }
   
   ul.AddonsList--hidden {
     max-height: 0;
@@ -511,8 +522,8 @@ body {
   .DiceRow__sub, .DiceRow__count, .DiceRow__add {
     margin: 0;
     background: #fff;
-    border: rgb(204, 204, 205) 1px solid;
     text-align: center;
+    border: rgb(0, 0, 0,0.2) 1px solid;
   }
 
   .DiceRow__sub, .DiceRow__add {
@@ -543,6 +554,10 @@ body {
     flex-grow: 1;
     margin-right: auto;;
     margin-bottom: auto;
+  }
+
+  .ItemSection {
+    border-bottom: rgb(0,0,0,0.2) 1px solid;
   }
 
   .Cart {
@@ -580,12 +595,12 @@ body {
   
   const makeAddons = (addons, addonFor) => `
   <ul class="AddonsList AddonsList--hidden" >
-    ${addons.map(({name, price, image}) => `<li addonFor="${addonFor}" ><div class="DiceRow" previewUrl="${image}" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
+    ${addons.map(({name, price, image}) => `<li class="ItemLi" addonFor="${addonFor}" ><div class="DiceRow" previewUrl="${image}" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
   </ul>
   `
 
   const makeDiceRow = (props) => `
-  <section>
+  <section class="ItemSection">
     <div class="DiceRow" previewUrl="${props.image}" category="${props.category}" name="${props.name}" price="${props.basePrice}">
       ${props.name} ${countButtons}
     </div>
@@ -640,13 +655,13 @@ body {
  <td>$${Math.round(count * basePrice,2)}</td>
 </tr>`)}
   `}).join('\n')}
-  <tr style="height: 1px; background: rgb(151, 147, 145);">
+  <tr style="height: 1px; background: rgb(0, 0, 0);">
     <td colspan="100%"></td>
  </tr>
   <tr>
-        <td><strong>Total</strong></td>
+        <td style="font-weight: 500;">Total</td>
         <td></td>
-        <td><strong>$${Math.round(cartTotal,2)}</strong></td>
+        <td style="font-weight: 500;">$${Math.round(cartTotal,2)}</td>
     </tr>
   </table>
   `}

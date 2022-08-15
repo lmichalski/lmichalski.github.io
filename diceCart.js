@@ -461,17 +461,11 @@ body {
 
 .accordion:hover  {
     font-weight: 600;
-    border-bottom: rgb(0,0,0,1) 3px solid;
+    border-bottom: rgb(0,0,0,1) 2px solid;
     -webkit-transition: all 100ms linear;
     -ms-transition: all 100ms linear;
     transition: all 100ms linear;
   }
-
-.active,
-.accordion:hover {
-  /* background-color: #426ef0; */
-}
-
 
 .accordion-content {
   margin-top: 4px;

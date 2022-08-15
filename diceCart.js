@@ -583,11 +583,16 @@ body {
      width: 100%;
    }
 
+   // Modify squarespace header size, yikes!
+   .header-title-logo a img {
+     max-height: 50px;
+   }
+
    .Preview {
        height: 300px;
        width: 100%;
        position: fixed;
-       top: 0;
+       top: 100; // Adjust me!
        left: 0;
        box-shadow: 0 0 11px rgba(0,0,0, 0.2); 
        background: white;

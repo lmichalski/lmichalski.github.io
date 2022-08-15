@@ -545,6 +545,7 @@ body {
   .Preview {
     width: 350px;
     height: 350px;
+    object-fit: cover;
   }
   
   .Sections {

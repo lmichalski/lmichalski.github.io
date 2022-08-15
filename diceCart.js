@@ -572,12 +572,13 @@ body {
 
   @media only screen and (max-width: 768px) {
    /* For mobile phones: */
-   .Preview {
+   .DiceCart {
+    flex-direction: column;
+   }
+
+   .Sidebar, .Cart  {
      width: 100%;
    }
-   .Sections {
-    width: 100%;
-  }
  }
 </style>
 `);

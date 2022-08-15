@@ -44,7 +44,7 @@ with open('dice-info.csv', newline='') as csvfile:
 
         current_row_category = row['Category']
 
-        if row['AddOns']:
+        if row['AddOns'] == "TRUE":
             item_addon = create_add_on(row['Name'], 25, row["AddOnImage"])
 
         row_item = create_item(row['Name'], int(row["Price"]), [item_addon], row["Image"])

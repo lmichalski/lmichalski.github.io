@@ -191,11 +191,7 @@
                 "name": "Blazing Inferno",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Blazing Inferno",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938527036-LW1USG6RP9PQB436AMWH/Inferno+D20+KS.jpg?format=500w"
             },
@@ -203,11 +199,7 @@
                 "name": "Bleeding Heart",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Bleeding Heart",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1657938755696-JPFUTJAMEZW94CJJP16Y/d20+bh.jpg?format=750w"
             },
@@ -215,11 +207,7 @@
                 "name": "Blood in the Water",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Blood in the Water",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658170259781-TFPS4BL3NVO7S421PX97/d20+square.jpg?format=500w"
             },
@@ -227,11 +215,7 @@
                 "name": "Corrupted Garden",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Corrupted Garden",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658205972666-C866YHHPSJ9978YFPXFT/d20+cg.jpg?format=500w"
             },
@@ -239,11 +223,7 @@
                 "name": "Dawn",
                 "basePrice": "20.00",
                 "addOns": [
-                    {
-                        "name": "Dawn",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206059498-X0WPNQ488XPYW3GMG03D/d20+square.jpg?format=750w"
             },
@@ -251,11 +231,7 @@
                 "name": "Dusk",
                 "basePrice": "20.00",
                 "addOns": [
-                    {
-                        "name": "Dusk",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206119431-9ERRVN7IVU9JEUNSZROZ/dusk+d20+square.jpg?format=500w"
             },
@@ -263,11 +239,7 @@
                 "name": "Dragon's Embers",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Dragon's Embers",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206171536-HD9TLNBHG87N80SQX030/D20+Final.jpg?format=500w"
             },
@@ -275,11 +247,7 @@
                 "name": "Fae Magic",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Fae Magic",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206233025-GYRS4JIXCOBH08IX8VR0/fm+d20+square.jpg?format=500w"
             },
@@ -287,11 +255,7 @@
                 "name": "Jade Emperor",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Jade Emperor",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206284912-74UYC841UQL00US1YB8D/D20+Square.jpg?format=500w"
             },
@@ -299,11 +263,7 @@
                 "name": "Land & Sea",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Land & Sea",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206343035-P8IAT8EY1M42THT0SPK8/d20+l%26s+square.jpg?format=500w"
             },
@@ -311,11 +271,7 @@
                 "name": "Last Breath",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Last Breath",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206430906-938EEWE7AA0PJD3W9278/LB+D20+Square.jpg?format=500w"
             },
@@ -323,11 +279,7 @@
                 "name": "Moonlit Stream",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Moonlit Stream",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206601075-IIJ9EQZW18I8LDVOX8RD/moonlit+d20+square.jpg?format=500w"
             },
@@ -335,11 +287,7 @@
                 "name": "Odyssey's End",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Odyssey's End",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206652218-SL76KGD9AZU2S00ANJW9/odysseys+end+d20.jpg?format=500w"
             },
@@ -347,11 +295,7 @@
                 "name": "Tempest",
                 "basePrice": "15.00",
                 "addOns": [
-                    {
-                        "name": "Tempest",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206697790-UDSYF39YC3TF8PKW4T9L/tempest+square+d20.jpg?format=500w"
             },
@@ -359,11 +303,7 @@
                 "name": "Withered Rose",
                 "basePrice": "20.00",
                 "addOns": [
-                    {
-                        "name": "Withered Rose",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/1658206739206-7NYMIEDJWCWPPRF3PR09/wr+d20+square.jpg?format=500w"
             }
@@ -376,11 +316,7 @@
                 "name": "Odyssey Dice Enamel Pin",
                 "basePrice": "12.00",
                 "addOns": [
-                    {
-                        "name": "Odyssey Dice Enamel Pin",
-                        "price": "25.00",
-                        "image": ""
-                    }
+                    {}
                 ],
                 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Safety_Pin.jpg/1200px-Safety_Pin.jpg"
             }

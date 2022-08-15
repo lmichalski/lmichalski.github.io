@@ -523,6 +523,7 @@ body {
     margin: 0;
     background: #fff;
     border: rgb(204, 204, 205) 1px solid;
+    text-align: center;
   }
 
   .DiceRow__sub, .DiceRow__add {

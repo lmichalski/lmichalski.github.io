@@ -670,7 +670,7 @@ for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
     var isOpen = $(this).find(".accordion-icon-container").attr("data-is-open") == "true"
-    $(this).find(".accordion-icon-container").attr("data-is-open", isOpen ? "true" : "false")
+    $(this).find(".accordion-icon-container").attr("data-is-open", isOpen ? "false" : "true")
     let panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;

@@ -588,22 +588,29 @@ body {
        width: 100%;
        position: fixed;
        top: 0;
+       left: 0;
        box-shadow: 0 0 11px rgba(0,0,0, 0.2); 
        background: white;
+       object-fit: contain;
    }
 
    .Cart tr:last-of-type {
        position: fixed;
        bottom: 0;
+       left: 0;
        background: #fff;
        width: 100%;
-       box-shadow: 0 0 11px rgba(0,0,0,0.2); 
+       box-shadow: 0 0 11px rgba(0,0,0,0.2);
+   }
+
+   .Cart tr:last-of-type td:first-of-type {
+       padding-left: 1em;
+       padding-right: 1em;
    }
 
    .Cart tr:nth-last-of-type(2) {
-       height: unset !important;
+       height: 30px !important;
        background: unset !important;
-       padding-bottom: 30px;
        border-top: 1px solid black;
    }
  }
@@ -705,7 +712,7 @@ $("#DiceCart").html(`
 </div>
 
 <div class="Sidebar">
-    <img class="Preview" src="https://cdn-icons-png.flaticon.com/512/6545/6545894.png"/>
+    <img class="Preview" src="https://images.squarespace-cdn.com/content/v1/61dfba241aebe967247a0635/d156fc6e-6118-4757-a9f2-cfd3961af1b3/probably_fixed_idk.png?format=1500w"/>
     <div class="Cart">
 
     </div>

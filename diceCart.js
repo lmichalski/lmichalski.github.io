@@ -449,8 +449,8 @@ body {
   border: none;
 
   text-transform: none;
-  height: calc((2 - 1) * 1.8vw + 1rem);
-  font-size: calc((2 - 1) * 0.6vw + 1rem);
+  height: 2.5rem;
+  font-size: 1.5rem;
 
   border-bottom: rgb(204, 204, 205) 1px solid
 }
@@ -464,14 +464,14 @@ body {
   content: "\\02C5";
   color: #000;
   /* font-weight: reg; */
-  font-size: calc((2 - 1) * 1.2vw + 1rem);
+  font-size: 1.5rem;
   float: right;
   margin-left: 0.5rem;
 }
 
 .active:after {
   content: "\\02C4";
-  font-size: calc((2 - 1) * 1.2vw + 1rem);
+  font-size: 1.5rem;
   float: right;
   margin-left: 0.5rem;
 }

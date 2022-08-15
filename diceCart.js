@@ -572,12 +572,39 @@ body {
 
   @media only screen and (max-width: 768px) {
    /* For mobile phones: */
-   .DiceCart {
+   
+   #DiceCart {
+    margin-top: 316px;
     flex-direction: column;
    }
 
-   .Sidebar, .Cart  {
+
+   .Sections, .Sidebar, .Cart  {
      width: 100%;
+   }
+
+   .Preview {
+       height: 300px;
+       width: 100%;
+       position: fixed;
+       top: 0;
+       box-shadow: 0 0 11px rgba(0,0,0, 0.2); 
+       background: white;
+   }
+
+   .Cart tr:last-of-type {
+       position: fixed;
+       bottom: 0;
+       background: #fff;
+       width: 100%;
+       box-shadow: 0 0 11px rgba(0,0,0,0.2); 
+   }
+
+   .Cart tr:nth-last-of-type(2) {
+       height: unset !important;
+       background: unset !important;
+       padding-bottom: 30px;
+       border-top: 1px solid black;
    }
  }
 </style>

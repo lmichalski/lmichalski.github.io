@@ -449,10 +449,14 @@ body {
   border: none;
 
   text-transform: none;
-  height: calc((2 - 1) * 1.8vw + 1rem);
-  font-size: calc((2 - 1) * 0.6vw + 1rem);
+  height: 2.5rem;
+  font-size: 1.5rem;
 
-  border-bottom: rgb(204, 204, 205) 1px solid
+  border-bottom: rgb(204, 204, 205) 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .active,
@@ -460,21 +464,6 @@ body {
   /* background-color: #426ef0; */
 }
 
-.accordion:after {
-  content: "\\02C5";
-  color: #000;
-  /* font-weight: reg; */
-  font-size: calc((2 - 1) * 1.2vw + 1rem);
-  float: right;
-  margin-left: 0.5rem;
-}
-
-.active:after {
-  content: "\\02C4";
-  font-size: calc((2 - 1) * 1.2vw + 1rem);
-  float: right;
-  margin-left: 0.5rem;
-}
 
 .accordion-content {
   padding: 0 1rem;
@@ -569,7 +558,7 @@ body {
       height: fit-content;
       position: -webkit-sticky; /* Safari */  
       position: sticky;
-      top: 0px;
+      top: 200px;
   }
 </style>
 `);
@@ -589,9 +578,9 @@ body {
   </div>
   `
   
-  const makeAddons = (addons, addonFor, image) => `
+  const makeAddons = (addons, addonFor) => `
   <ul class="AddonsList AddonsList--hidden" >
-    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow" previewUrl="${image}" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
+    ${addons.map(({name, price, image}) => `<li addonFor="${addonFor}" ><div class="DiceRow" previewUrl="${image}" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
   </ul>
   `
 
@@ -602,12 +591,25 @@ body {
     </div>
     ${makePriceRow(props)}
     
-    ${props.addOns ? makeAddons(props.addOns, props.name, props.addOnImage) : ''}
+    ${props.addOns ? makeAddons(props.addOns, props.name) : ''}
   </section>
   `
   
   const makeSection = (props) => `
-    <button class="accordion">${props.name}</button>
+    <button class="accordion sqs-block-accordion">
+        ${props.name} 
+        <div class="accordion-icon-container accordion-item" data-is-open="false" aria-hidden="true" style="
+              height: 14px;
+              width: 14px;
+            ">
+            
+              <div class="arrow-container">
+                <div class="arrow" style="
+                    border-width: 3px;
+                  "></div>
+              </div>
+          </div>
+    </button>
     <div class="accordion-content">
       ${props.items.map((items) => makeDiceRow({...items, category: props.name})).join('\n')}
     </div> 
@@ -668,6 +670,8 @@ let i;
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
+    var isOpen = $(this).find(".accordion-icon-container").attr("data-is-open") == "true"
+    $(this).find(".accordion-icon-container").attr("data-is-open", isOpen ? "false" : "true")
     let panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
@@ -831,7 +835,7 @@ for (i = 0; i < acc.length; i++) {
     updateCart()
   })
   
-  $("section").hover((e) => {
+  $("section,li").hover((e) => {
     const rowDiv = $(e.currentTarget)
     const newUrl = $(rowDiv).children(".DiceRow").attr("previewUrl")
     if (newUrl){

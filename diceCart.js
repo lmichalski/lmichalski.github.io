@@ -572,9 +572,13 @@ body {
 
   @media only screen and (max-width: 768px) {
    /* For mobile phones: */
-   #DiceCart{
+   .DiceCart {
     flex-direction: column;
-  }
+   }
+
+   .Sidebar, .Cart  {
+     width: 100%;
+   }
  }
 </style>
 `);
@@ -850,14 +854,34 @@ for (i = 0; i < acc.length; i++) {
     
     updateCart()
   })
-  
-  $("section,li").hover((e) => {
-    const rowDiv = $(e.currentTarget)
-    const newUrl = $(rowDiv).children(".DiceRow").attr("previewUrl")
-    if (newUrl){
-        $("img.Preview").attr("src", newUrl)
+
+  var hoverTimeout = null;
+
+  function clearHoverTimeout() {
+    if (hoverTimeout){
+      clearTimeout(hoverTimeout);
+      hoverTimeout = null;
     }
-  }, null)
+  }
+  
+  $("section,li").hover(
+    (e) => {
+        const rowDiv = $(e.currentTarget)
+        const newUrl = $(rowDiv).children(".DiceRow").attr("previewUrl")
+        if (newUrl){
+            clearHoverTimeout()
+            hoverTimeout = setTimeout(() => $("img.Preview").attr("src", newUrl), 200);
+        }
+    },
+    (e) => {
+        const rowEl = $(e.currentTarget)
+        // Handle leaving an addon, fallback to the parent
+        const newUrl = $(rowEl).parent().parent().children(".DiceRow").attr("previewUrl")
+        if (newUrl){
+            clearHoverTimeout()
+            hoverTimeout = setTimeout(() => $("img.Preview").attr("src", newUrl), 200);
+        }
+    })
 
 } else {
     // wait 50 milliseconds and try again.

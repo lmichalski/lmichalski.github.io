@@ -557,7 +557,7 @@ body {
       height: fit-content;
       position: -webkit-sticky; /* Safari */  
       position: sticky;
-      top: 0px;
+      top: 200px;
   }
 </style>
 `);

@@ -588,9 +588,9 @@ body {
   </div>
   `
   
-  const makeAddons = (addons, addonFor, image) => `
+  const makeAddons = (addons, addonFor) => `
   <ul class="AddonsList AddonsList--hidden" >
-    ${addons.map(({name, price}) => `<li addonFor="${addonFor}" ><div class="DiceRow" previewUrl="${image}" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
+    ${addons.map(({name, price, image}) => `<li addonFor="${addonFor}" ><div class="DiceRow" previewUrl="${image}" name="${name}" price="${price}"> ${name} ${countButtons} </div> ${makePriceRow({name, basePrice: price})} </li>`).join('\n')}
   </ul>
   `
 
@@ -601,7 +601,7 @@ body {
     </div>
     ${makePriceRow(props)}
     
-    ${props.addOns ? makeAddons(props.addOns, props.name, props.addOnImage) : ''}
+    ${props.addOns ? makeAddons(props.addOns, props.name) : ''}
   </section>
   `
   
@@ -830,7 +830,7 @@ for (i = 0; i < acc.length; i++) {
     updateCart()
   })
   
-  $("section").hover((e) => {
+  $("section,li").hover((e) => {
     const rowDiv = $(e.currentTarget)
     const newUrl = $(rowDiv).children(".DiceRow").attr("previewUrl")
     if (newUrl){

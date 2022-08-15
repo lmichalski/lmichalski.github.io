@@ -595,9 +595,9 @@ body {
   `
   
   const makeSection = (props) => `
-    <button class="accordion">
+    <button class="accordion sqs-block-accordion">
         ${props.name} 
-        <div class="accordion-icon-container" data-is-open="false" aria-hidden="true" style="
+        <div class="accordion-icon-container accordion-item" data-is-open="false" aria-hidden="true" style="
               height: 14px;
               width: 14px;
             ">

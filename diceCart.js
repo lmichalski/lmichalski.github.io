@@ -869,7 +869,7 @@ for (i = 0; i < acc.length; i++) {
         const newUrl = $(rowDiv).children(".DiceRow").attr("previewUrl")
         if (newUrl){
             clearHoverTimeout()
-            hoverTimeout = setTimeout(() => $("img.Preview").attr("src", newUrl), 100);
+            hoverTimeout = setTimeout(() => $("img.Preview").attr("src", newUrl), 200);
         }
     },
     (e) => {
@@ -878,7 +878,7 @@ for (i = 0; i < acc.length; i++) {
         const newUrl = $(rowEl).parent().parent().children(".DiceRow").attr("previewUrl")
         if (newUrl){
             clearHoverTimeout()
-            hoverTimeout = setTimeout(() => $("img.Preview").attr("src", newUrl), 100);
+            hoverTimeout = setTimeout(() => $("img.Preview").attr("src", newUrl), 200);
         }
     })
 

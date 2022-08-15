@@ -452,7 +452,11 @@ body {
   height: 2.5rem;
   font-size: 1.5rem;
 
-  border-bottom: rgb(204, 204, 205) 1px solid
+  border-bottom: rgb(204, 204, 205) 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .active,
@@ -460,21 +464,6 @@ body {
   /* background-color: #426ef0; */
 }
 
-.accordion:after {
-  content: "\\02C5";
-  color: #000;
-  /* font-weight: reg; */
-  font-size: 1.5rem;
-  float: right;
-  margin-left: 0.5rem;
-}
-
-.active:after {
-  content: "\\02C4";
-  font-size: 1.5rem;
-  float: right;
-  margin-left: 0.5rem;
-}
 
 .accordion-content {
   padding: 0 1rem;
@@ -606,7 +595,20 @@ body {
   `
   
   const makeSection = (props) => `
-    <button class="accordion">${props.name}</button>
+    <button class="accordion">
+        ${props.name} 
+        <div class="accordion-icon-container" data-is-open="false" aria-hidden="true" style="
+              height: 14px;
+              width: 14px;
+            ">
+            
+              <div class="arrow-container">
+                <div class="arrow" style="
+                    border-width: 3px;
+                  "></div>
+              </div>
+          </div>
+    </button>
     <div class="accordion-content">
       ${props.items.map((items) => makeDiceRow({...items, category: props.name})).join('\n')}
     </div> 
@@ -667,6 +669,8 @@ let i;
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
+    var isOpen = $(this).find(".accordion-icon-container").attr("data-is-open")
+    $(this).find(".accordion-icon-container").attr("data-is-open", isOpen ? "true" : "false")
     let panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;

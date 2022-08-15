@@ -588,10 +588,10 @@ body {
    }
 
    .Preview {
-       height: 300px;
+       height: 200px;
        width: 100%;
        position: fixed;
-       top: 100px;
+       top: 75px;
        left: 0px;
        box-shadow: 0 0 11px rgba(0,0,0, 0.2); 
        background: white;
@@ -605,6 +605,8 @@ body {
        background: #fff;
        width: 100%;
        box-shadow: 0 0 11px rgba(0,0,0,0.2);
+       padding-top: 0.5em;
+       padding-bottom: 0.5em;
    }
 
    .Cart tr:last-of-type td:first-of-type {
